@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="todo-container">
+        <div class="heading">
+            <h1>MY TO DOS</h1>
+            <div>
+                <span (click)="sortItems()">sort icon</span>
+                <span (click)="addToDoItem()">add icon</span>
+            </div>
+            <!-- for dynamic value use [] -->
+            <input type="text" #inputText [value]="inputValue" (input)="getInputValue(inputText.value)" />
+        </div>
+        <ul class="list-container">
+            <li *ngFor="let item of myTodoList" (click)="updateStatus(item)" (mouseenter)="showDeleteIcon(item)" (mouseleave)="hideDeleteIcon(item)">
+                <input [disabled]="item.done" [checked]="item.done" type="checkbox" />
+                <label (click)="consoleMethod()">{{ item.text }}</label>
+                <span *ngIf="item.current" (click)="deleteItem(item)">delete</span>
+            </li>
+        </ul>
+    </div>
+</div>

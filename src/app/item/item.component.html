@@ -1,0 +1,11 @@
+<li *ngFor="let item of myTodoList" (click)="updateStatus(item)" (mouseenter)="showDeleteIcon(item)" (mouseleave)="hideDeleteIcon(item)">
+    <hr />
+    <div class="task-icon">
+        <div class="tasks">
+            <input [disabled]="item.done" [checked]="item.done" type="radio" />
+            <label>{{ item.text }}</label>
+        </div>
+        <span *ngIf="item.current" (click)="deleteItem(item)"><fa-icon [icon]="faTrashAlt"></fa-icon
+    ></span>
+    </div>
+</li>

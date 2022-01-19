@@ -1,5 +1,6 @@
 import { ToDoServiceService } from './../todoServices/to-do-service.service';
 import { Component, OnInit } from '@angular/core';
+import { faPlus, faSort } from '@fortawesome/free-solid-svg-icons';
 interface todoitem {
   text: string;
   done: boolean;
@@ -9,20 +10,21 @@ interface todoitem {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(private _todoService: ToDoServiceService) {
     //private=> this is only for this class
   }
-  myTodoList: Array<todoitem> = [];
+  faPlus = faPlus;
+  faSort = faSort;
   inputValue: string = '';
   errorMessage = '';
 
   //useEffect() onload
   ngOnInit() {
     console.log(this._todoService.todoList);
-    this.myTodoList = this._todoService.todoList;
+
     this.inputValue = this._todoService.inputValue;
     this.errorMessage = this._todoService.errorMessage;
   }
@@ -32,24 +34,8 @@ export class AppComponent {
   addToDoItem() {
     this._todoService.addToDoItem();
   }
-  updateStatus(item: todoitem) {
-    this._todoService.updateStatus(item);
-  }
-  showDeleteIcon(item: todoitem) {
-    this._todoService.showDeleteIcon(item);
-  }
 
-  hideDeleteIcon(item: todoitem) {
-    this._todoService.hideDeleteIcon(item);
-  }
-  deleteItem(item: todoitem) {
-    this._todoService.deleteItem(item);
-  }
   sortItems() {
     this._todoService.sortItems();
-  }
-
-  consoleMethod() {
-    // console.log(this.sortItems);
   }
 }

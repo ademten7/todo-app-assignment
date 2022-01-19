@@ -1,20 +1,18 @@
 <div class="container">
     <div class="todo-container">
         <div class="heading">
-            <h1>MY TO DOS</h1>
-            <div>
-                <span (click)="sortItems()">sort icon</span>
-                <span (click)="addToDoItem()">add icon</span>
+            <h1>My To Dos</h1>
+            <div class="top-icons">
+                <span (click)="sortItems()"><fa-icon [icon]="faSort"></fa-icon></span>
+                <span (click)="addToDoItem()"><fa-icon [icon]="faPlus"></fa-icon></span>
             </div>
             <!-- for dynamic value use [] -->
-            <input type="text" #inputText [value]="inputValue" (input)="getInputValue(inputText.value)" />
+        </div>
+        <div class="input-field">
+            <input type="text" placeholder="Enter a task" #inputText [value]="inputValue" (input)="getInputValue(inputText.value)" />
         </div>
         <ul class="list-container">
-            <li *ngFor="let item of myTodoList" (click)="updateStatus(item)" (mouseenter)="showDeleteIcon(item)" (mouseleave)="hideDeleteIcon(item)">
-                <input [disabled]="item.done" [checked]="item.done" type="checkbox" />
-                <label (click)="consoleMethod()">{{ item.text }}</label>
-                <span *ngIf="item.current" (click)="deleteItem(item)">delete</span>
-            </li>
+            <app-item></app-item>
         </ul>
     </div>
 </div>

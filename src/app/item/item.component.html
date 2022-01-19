@@ -1,4 +1,4 @@
-<li *ngFor="let item of myTodoList" (click)="updateStatus(item)" (mouseenter)="showDeleteIcon(item)" (mouseleave)="hideDeleteIcon(item)">
+<li *ngFor="let item of myTodoList" [class]="item.done ? 'disable-text' : ''" (click)="updateStatus(item)" (mouseenter)="showDeleteIcon(item)" (mouseleave)="hideDeleteIcon(item)">
     <hr />
     <div class="task-icon">
         <div class="tasks">

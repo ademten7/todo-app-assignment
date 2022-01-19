@@ -52,8 +52,6 @@ export class ToDoServiceService {
     localStorage.setItem('todoList', JSON.stringify(this.todoList));
   }
 
-  deleteButton = false;
-
   showDeleteIcon(item: todoitem) {
     console.log(item);
     const index = this.todoList.indexOf(item);

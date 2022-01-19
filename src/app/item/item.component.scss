@@ -1,11 +1,11 @@
 li {
+    list-style: none;
+    font-size: 1.5em;
     .task-icon {
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
-    list-style: none;
-    font-size: 1.5em;
     input {
         font-size: 2em;
     }
@@ -18,4 +18,27 @@ li {
             transform: scale(1.2);
         }
     }
+}
+
+@media (max-width: 898px) {
+    li {
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 548px) {
+    li {
+        font-size: 0.5em;
+    }
+}
+
+@media (max-width: 398px) {
+    li {
+        font-size: 0.4em;
+    }
+}
+
+.disable-text {
+    color: gray;
+    text-decoration: line-through;
 }

@@ -1,4 +1,4 @@
-import { ToDoServiceService } from '../../todoServices/to-do-service.service';
+import { ToDoServiceService } from 'src/todoServices/to-do-service.service';
 import { Component, OnInit } from '@angular/core';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 interface todoitem {
